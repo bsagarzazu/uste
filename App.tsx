@@ -9,9 +9,9 @@ import { Phone, Mail, MapPin, ChevronRight, History, Award, CheckCircle2 } from 
  * SUSTITUYE ESTAS URLS POR TUS FOTOS PROPIAS 
  * Ej: const heroImg = "./img/hero-uste.jpg";
  */
-const heroImg = "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad21?auto=format&fit=crop&q=80&w=2000";
-const aboutImg = "https://images.unsplash.com/photo-1512133911619-dfb3403a740f?auto=format&fit=crop&q=80&w=1200";
-const footerBgImg = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200";
+const heroImg = "./img/hero-uste.jpg";
+const aboutImg = "./img/about-uste.jpg";
+const footerBgImg = "https://images.unsplash.com/photo-1623863778523-c91834925828?auto=format&fit=crop&q=80&w=1200";
 
 const App: React.FC = () => {
   return (
