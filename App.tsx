@@ -11,7 +11,7 @@ import { Phone, Mail, MapPin, ChevronRight, History, Award, CheckCircle2 } from 
  */
 const heroImg = "./img/hero-uste.jpg";
 const aboutImg = "./img/about-uste.jpg";
-const footerBgImg = "https://images.unsplash.com/photo-1623863778523-c91834925828?auto=format&fit=crop&q=80&w=1200";
+const footerBgImg = "./img/footer-uste.png";
 
 const App: React.FC = () => {
   return (
