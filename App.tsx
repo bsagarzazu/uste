@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Logo } from './components/Logo';
-import { Section } from './components/Section';
-import { SERVICES, CONTACT_INFO } from './constants';
+import { Logo } from './components/Logo.tsx';
+import { Section } from './components/Section.tsx';
+import { SERVICES, CONTACT_INFO } from './constants.tsx';
 import { Phone, Mail, MapPin, ChevronRight, History, Award, CheckCircle2 } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -195,8 +195,7 @@ const App: React.FC = () => {
             <p className="text-sm mt-4">© {new Date().getFullYear()} USTE Mensajería. Todos los derechos reservados.</p>
           </div>
           <div className="flex gap-8 text-xs font-medium uppercase tracking-tighter">
-             {/* Nombres eliminados según solicitud */}
-             <span>Servicio de mensajería profesional</span>
+             <span>Servicio de mensajería profesional en Álava</span>
           </div>
         </div>
       </footer>

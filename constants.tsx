@@ -10,37 +10,37 @@ export const COLORS = {
 export const SERVICES = [
   {
     title: "Suministros Industriales",
-    description: "Servicio diario de recogida y entrega para empresas como Ferretería Marañón, Optimus3D, Suministros Gasteiz, Hepyc, Elmubas y Gasteiz Suministros Industriales. Cobertura total en los polígonos de Jundiz, Gamarra, Ali-Gobeo y Betoño.",
+    description: "Servicio diario especializado para empresas líderes como Ferretería Marañón, Optimus3D, Suministros Gasteiz, Hepyc, Elmubas, Gasteiz Suministros Industriales, y suministros de automoción. Cobertura extensiva en Jundiz, Gamarra, Ali-Gobeo y Betoño.",
     icon: <Truck className="w-6 h-6" />
   },
   {
     title: "Documentación Bancaria y Notarías",
-    description: "Gestión crítica de documentos para entidades bancarias, notarías, asesorías legales y agencias de viajes con total confidencialidad.",
+    description: "Gestión crítica y segura de documentos para entidades bancarias, notarías, asesorías legales, gestorías y agencias de viajes en el centro de Vitoria.",
     icon: <Building2 className="w-6 h-6" />
   },
   {
     title: "Apartado de Correos",
-    description: "Recogida y entrega diaria del apartado de correos de su empresa, asegurando que su correspondencia esté en su oficina a primera hora.",
+    description: "Recogida y entrega diaria del apartado de correos de su empresa. Garantizamos que su correspondencia esté en su mesa antes del inicio de la jornada.",
     icon: <Mail className="w-6 h-6" />
   },
   {
     title: "Organismos Oficiales",
-    description: "Tramitación ágil de documentos ante la Seguridad Social, Gobierno Vasco, Diputación Foral de Álava y Ayuntamientos.",
+    description: "Tramitación ágil de documentos ante la Seguridad Social, Gobierno Vasco, Diputación Foral de Álava, Ayuntamientos y registros oficiales.",
     icon: <ShieldCheck className="w-6 h-6" />
   },
   {
     title: "Paquetería y Pedidos",
-    description: "Recogida de pedidos locales y entrega de paquetería express en establecimientos comerciales y sedes corporativas.",
+    description: "Recogida de pedidos locales y entrega de paquetería express para comercios, farmacias y sedes corporativas con seguimiento inmediato.",
     icon: <Package className="w-6 h-6" />
   },
   {
     title: "Servicios Urgentes",
-    description: "Atención inmediata para envíos 'punto a punto' que requieren máxima prioridad dentro de Vitoria y alrededores.",
+    description: "Atención inmediata para envíos 'punto a punto' que no pueden esperar. Rapidez y seguridad en toda el área metropolitana de Vitoria.",
     icon: <Clock className="w-6 h-6" />
   },
   {
     title: "Valijas Internas",
-    description: "Intercambio programado de valijas entre sedes, delegaciones o para personal en modalidad de teletrabajo.",
+    description: "Intercambio programado de valijas entre diferentes sedes de una misma empresa o entregas especiales para empleados en teletrabajo.",
     icon: <Briefcase className="w-6 h-6" />
   }
 ];
