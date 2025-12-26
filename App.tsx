@@ -5,20 +5,30 @@ import { Section } from './components/Section.tsx';
 import { SERVICES, CONTACT_INFO } from './constants.tsx';
 import { Phone, Mail, MapPin, ChevronRight, History, Award, CheckCircle2 } from 'lucide-react';
 
+/** 
+ * SUSTITUYE ESTAS URLS POR TUS FOTOS PROPIAS 
+ * Ej: const heroImg = "./img/hero-uste.jpg";
+ */
+const heroImg = "https://images.unsplash.com/photo-1566576721346-d4a3b4eaad21?auto=format&fit=crop&q=80&w=2000";
+const aboutImg = "https://images.unsplash.com/photo-1512133911619-dfb3403a740f?auto=format&fit=crop&q=80&w=1200";
+const footerBgImg = "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200";
+
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col scroll-smooth">
+    <div className="min-h-screen flex flex-col">
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
         <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <Logo className="scale-75 md:scale-90 origin-left" />
+          <a href="#" className="hover:opacity-80 transition-opacity">
+            <Logo className="scale-75 md:scale-90 origin-left" />
+          </a>
           <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600 uppercase tracking-widest">
             <a href="#servicios" className="hover:text-red-600 transition-colors">Servicios</a>
             <a href="#empresa" className="hover:text-red-600 transition-colors">La Empresa</a>
             <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
           </div>
           <div className="flex md:hidden">
-             <a href="tel:945063982" className="p-2 bg-red-600 text-white rounded-full">
+             <a href={`tel:${CONTACT_INFO.phones[0].replace(/\s/g, '')}`} className="p-2 bg-red-600 text-white rounded-full">
                 <Phone className="w-5 h-5" />
              </a>
           </div>
@@ -29,18 +39,18 @@ const App: React.FC = () => {
       <section className="relative h-screen flex items-center pt-20 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1566576721346-d4a3b4eaad21?auto=format&fit=crop&q=80&w=2000" 
-            alt="Logística en ciudad"
+            src={heroImg} 
+            alt="Fondo USTE"
             className="w-full h-full object-cover brightness-[0.35]"
           />
         </div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
-              Mensajería de confianza en <span className="text-red-500">Vitoria-Gasteiz</span>
+          <div className="max-w-5xl">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
+              Mensajería de confianza en <span className="text-red-500 inline-block">Vitoria-Gasteiz</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
               Más de 30 años garantizando la entrega segura y puntual de su documentación, paquetes y suministros industriales.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -83,8 +93,8 @@ const App: React.FC = () => {
           <div className="relative">
             <div className="rounded-3xl overflow-hidden shadow-2xl">
               <img 
-                src="https://images.unsplash.com/photo-1512133911619-dfb3403a740f?auto=format&fit=crop&q=80&w=1200" 
-                alt="Furgoneta de reparto en Vitoria"
+                src={aboutImg} 
+                alt="Empresa USTE"
                 className="w-full h-[500px] object-cover"
               />
             </div>
@@ -173,8 +183,8 @@ const App: React.FC = () => {
           <div className="bg-white/5 p-1 rounded-3xl overflow-hidden border border-white/10 h-full min-h-[400px]">
              <div className="w-full h-full bg-slate-800 flex items-center justify-center relative group">
                 <img 
-                  src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200" 
-                  alt="Vitoria-Gasteiz"
+                  src={footerBgImg} 
+                  alt="Base de operaciones"
                   className="w-full h-full object-cover opacity-40"
                 />
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
@@ -192,10 +202,21 @@ const App: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col items-center md:items-start gap-2">
             <Logo className="grayscale brightness-200 scale-75 origin-left" />
-            <p className="text-sm mt-4">© {new Date().getFullYear()} USTE Mensajería. Todos los derechos reservados.</p>
+            <div className="mt-4 flex flex-col items-center md:items-start gap-1">
+              <p className="text-sm text-slate-400 font-medium">
+                Copyright © {new Date().getFullYear()} USTE Mensajería.
+              </p>
+              <p className="text-xs text-slate-600">
+                Todos los derechos reservados. Vitoria-Gasteiz, Álava.
+              </p>
+            </div>
           </div>
-          <div className="flex gap-8 text-xs font-medium uppercase tracking-tighter">
-             <span>Servicio de mensajería profesional en Álava</span>
+          <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
+             <span className="hover:text-slate-400 transition-colors">Servicio Integral</span>
+             <span className="hidden md:inline text-slate-800">•</span>
+             <span className="hover:text-slate-400 transition-colors">Mensajería Local</span>
+             <span className="hidden md:inline text-slate-800">•</span>
+             <span className="hover:text-slate-400 transition-colors">Logística Industrial</span>
           </div>
         </div>
       </footer>
