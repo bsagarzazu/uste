@@ -1,22 +1,78 @@
-
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>USTE - Mensajería en Vitoria-Gasteiz</title>
-    <link rel="icon" type="image/png" href="./img/logo-uste.svg" />
+    
+    <!-- SEO Básico -->
+    <title>USTE - Mensajería Urgente y Servicios en Vitoria-Gasteiz</title>
+    <meta name="description" content="USTE Mensajería: Más de 30 años de experiencia en servicios de mensajería, paquetería y logística industrial en Vitoria-Gasteiz y polígonos de Álava." />
+    <meta name="keywords" content="mensajería vitoria, transporte urgente vitoria, logística jundiz, paquetería álava, uste mensajería, mensajeros vitoria-gasteiz" />
+    <meta name="author" content="USTE Mensajería" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph (Redes Sociales) -->
+    <meta property="og:title" content="USTE - Mensajería Urgente en Vitoria-Gasteiz" />
+    <meta property="og:description" content="Servicios de mensajería profesional para empresas y particulares. Más de 30 años de confianza en Álava." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://bsagarzazu.github.io/uste/" />
+    <meta property="og:image" content="https://bsagarzazu.github.io/uste/logo.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="USTE Mensajería Vitoria" />
+    <meta name="twitter:description" content="Líderes en mensajería industrial y de documentación en Vitoria-Gasteiz." />
+
+    <!-- Datos Estructurados JSON-LD (Vital para SEO Local) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "USTE Mensajería",
+      "image": "https://bsagarzazu.github.io/uste/logo.png",
+      "@id": "https://bsagarzazu.github.io/uste/",
+      "url": "https://bsagarzazu.github.io/uste/",
+      "telephone": "+34945063982",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Paseo de Estrasburgo 7",
+        "addressLocality": "Vitoria-Gasteiz",
+        "postalCode": "01002",
+        "addressRegion": "Álava",
+        "addressCountry": "ES"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 42.8549,
+        "longitude": -2.6515
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "19:00"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="logo.png" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
+      body { font-family: 'Inter', sans-serif; }
     </style>
-<link rel="stylesheet" href="/index.css">
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "vite": "https://esm.sh/vite@^7.3.0",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.2"
+  }
+}
+</script>
 </head>
   <body class="bg-slate-50 text-slate-900">
     <div id="root"></div>

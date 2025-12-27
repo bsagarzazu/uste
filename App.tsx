@@ -1,222 +1,170 @@
+import React, { useState } from 'react';
+import { Logo } from './components/Logo.tsx';
+import { Section } from './components/Section.tsx';
+import { TRANSLATIONS, CONTACT_INFO } from './constants.tsx';
+import { Phone, Mail, MapPin, ChevronRight, History, Award } from 'lucide-react';
 
-import React from 'react';
-import { Logo } from './components/Logo';
-import { Section } from './components/Section';
-import { SERVICES, CONTACT_INFO } from './constants';
-import { Phone, Mail, MapPin, ChevronRight, History, Award, CheckCircle2 } from 'lucide-react';
-
-/** 
- * SUSTITUYE ESTAS URLS POR TUS FOTOS PROPIAS 
- * Ej: const heroImg = "./img/hero-uste.jpg";
- */
-const heroImg = "./img/hero-uste.jpg";
-const aboutImg = "./img/about-uste.jpg";
-const footerBgImg = "./img/footer-uste.png";
+const heroImg = "https://images.unsplash.com/photo-1519003300449-424ad040507b?auto=format&fit=crop&q=80&w=2000"; 
+const aboutImg = "https://images.unsplash.com/photo-1543833078-43843586f376?auto=format&fit=crop&q=80&w=1200"; 
+const footerBgImg = "https://images.unsplash.com/photo-1623863778523-c91834925828?auto=format&fit=crop&q=80&w=1200"; 
 
 const App: React.FC = () => {
+  const [lang, setLang] = useState<'es' | 'eu'>('es');
+  const t = TRANSLATIONS[lang];
+
   return (
     <div className="min-h-screen flex flex-col">
       {/* Navigation */}
-      <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <a href="#" className="hover:opacity-80 transition-opacity">
-            <Logo className="scale-75 md:scale-90 origin-left" />
+      <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm" aria-label="Navegación principal">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+          <a href="#" className="hover:opacity-80 transition-opacity" title="Inicio">
+            <Logo lang={lang} className="scale-75 md:scale-90 origin-left" />
           </a>
-          <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600 uppercase tracking-widest">
-            <a href="#servicios" className="hover:text-red-600 transition-colors">Servicios</a>
-            <a href="#empresa" className="hover:text-red-600 transition-colors">La Empresa</a>
-            <a href="#contacto" className="hover:text-red-600 transition-colors">Contacto</a>
-          </div>
-          <div className="flex md:hidden">
-             <a href={`tel:${CONTACT_INFO.phones[0].replace(/\s/g, '')}`} className="p-2 bg-red-600 text-white rounded-full">
-                <Phone className="w-5 h-5" />
-             </a>
+          
+          <div className="flex items-center gap-4 md:gap-8">
+            <div className="hidden md:flex gap-8 text-sm font-semibold text-slate-600 uppercase tracking-widest">
+              <a href="#servicios" className="hover:text-red-600 transition-colors">{t.nav.services}</a>
+              <a href="#empresa" className="hover:text-red-600 transition-colors">{t.nav.company}</a>
+              <a href="#contacto" className="hover:text-red-600 transition-colors">{t.nav.contact}</a>
+            </div>
+
+            {/* Language Switcher */}
+            <div className="flex items-center bg-slate-100 rounded-full p-1 border border-slate-200">
+              <button 
+                onClick={() => setLang('es')}
+                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'es' ? 'bg-white shadow-sm text-red-600' : 'text-slate-400 hover:text-slate-600'}`}
+              >
+                ES
+              </button>
+              <button 
+                onClick={() => setLang('eu')}
+                className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'eu' ? 'bg-white shadow-sm text-red-600' : 'text-slate-400 hover:text-slate-600'}`}
+              >
+                EU
+              </button>
+            </div>
+
+            <div className="flex md:hidden">
+               <a 
+                 href={`tel:${CONTACT_INFO.phones[0].replace(/\s/g, '')}`} 
+                 className="p-2.5 bg-red-600 text-white rounded-full shadow-lg active:scale-95 transition-transform"
+                 aria-label="Deitu USTEra"
+               >
+                  <Phone className="w-5 h-5" />
+               </a>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center pt-20 overflow-hidden">
+      <header className="relative h-[90vh] md:h-screen flex items-center pt-16 overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImg} 
-            alt="Fondo USTE"
+            alt="Mensajería Vitoria"
             className="w-full h-full object-cover brightness-[0.35]"
+            loading="eager"
           />
         </div>
-        
-        <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="max-w-5xl">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
-              Mensajería de confianza en <span className="text-red-500 inline-block">Vitoria-Gasteiz</span>
+              {t.hero.title} <span className="text-red-500">{t.hero.city}</span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
-              Más de 30 años garantizando la entrega segura y puntual de su documentación, paquetes y suministros industriales.
+            <p className="text-lg md:text-2xl text-slate-300 mb-8 md:mb-10 leading-relaxed max-w-2xl">
+              {t.hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a 
-                href="#servicios" 
-                className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-center transition-all flex items-center justify-center gap-2 group"
-              >
-                Nuestros Servicios
-                <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <a href="#servicios" className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-bold text-center transition-all flex items-center justify-center gap-2 group">
+                {t.hero.ctaPrimary} <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
-              <a 
-                href="#contacto" 
-                className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-lg font-bold text-center transition-all"
-              >
-                Contacto Directo
+              <a href="#contacto" className="bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white border border-white/30 px-8 py-4 rounded-lg font-bold text-center transition-all">
+                {t.hero.ctaSecondary}
               </a>
             </div>
           </div>
         </div>
-      </section>
+      </header>
 
-      {/* Services Section */}
-      <Section id="servicios" title="Servicios para Empresas" subtitle="Soluciones logísticas a medida, adaptadas a la operativa diaria y al presupuesto de cada cliente.">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {SERVICES.map((service, index) => (
-            <div key={index} className="bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group">
-              <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
-                {service.icon}
-              </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-slate-600 leading-relaxed text-sm md:text-base">{service.description}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
+      <main>
+        <Section id="servicios" title={t.services.sectionTitle} subtitle={t.services.sectionSubtitle}>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {t.services.list.map((service, index) => (
+              <article key={index} className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all group">
+                <div className="w-12 h-12 bg-red-50 text-red-600 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-600 group-hover:text-white transition-colors">
+                  {service.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">{service.description}</p>
+              </article>
+            ))}
+          </div>
+        </Section>
 
-      {/* Why Us Section */}
-      <Section id="empresa" light className="overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          <div className="relative">
-            <div className="rounded-3xl overflow-hidden shadow-2xl">
+        <Section id="empresa" light className="overflow-hidden py-12 md:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div className="relative">
               <img 
                 src={aboutImg} 
-                alt="Empresa USTE"
-                className="w-full h-[500px] object-cover"
+                alt="Logística Álava"
+                className="rounded-3xl shadow-2xl w-full h-[400px] object-cover"
+                loading="lazy"
               />
-            </div>
-            <div className="absolute -bottom-6 -right-6 bg-red-600 text-white p-8 rounded-2xl shadow-xl hidden md:block">
-              <span className="text-4xl font-bold block">+30</span>
-              <span className="text-sm font-medium uppercase tracking-widest">Años de Servicio</span>
-            </div>
-          </div>
-          
-          <div>
-            <h2 className="text-4xl font-bold mb-6">Su socio logístico local</h2>
-            <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-              En USTE realizamos servicios personalizados según la demanda de cada empresa. Operamos con agilidad en toda Vitoria-Gasteiz y sus cinturones industriales, optimizando sus procesos de envío.
-            </p>
-            
-            <div className="space-y-6">
-              {[
-                { icon: <Award className="text-red-600" />, title: "Fiabilidad Garantizada", text: "Tres décadas de experiencia nos permiten ofrecer un servicio sin errores." },
-                { icon: <History className="text-red-600" />, title: "Compromiso Local", text: "Conocemos cada rincón de los polígonos de Álava para entregas más rápidas." },
-                { icon: <CheckCircle2 className="text-red-600" />, title: "Eficiencia Económica", text: "Externalice su mensajería y ahorre en costes de personal, combustible y vehículos." }
-              ].map((item, idx) => (
-                <div key={idx} className="flex gap-4">
-                  <div className="mt-1">{item.icon}</div>
-                  <div>
-                    <h4 className="font-bold text-lg">{item.title}</h4>
-                    <p className="text-slate-600">{item.text}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </Section>
-
-      {/* Contact Section */}
-      <Section id="contacto" className="bg-slate-900 text-white">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          <div>
-            <h2 className="text-4xl font-bold mb-6 text-white">¿Hablamos?</h2>
-            <p className="text-slate-400 text-lg mb-10 max-w-md">
-              Contacte con nosotros para solicitar información personalizada y presupuestos ajustados a sus necesidades.
-            </p>
-            
-            <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 border border-white/10">
-                  <Phone className="w-5 h-5 text-red-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-300 uppercase text-xs tracking-widest mb-1">Teléfonos</h4>
-                  <div className="flex flex-col gap-1">
-                    {CONTACT_INFO.phones.map((phone, i) => (
-                      <a key={i} href={`tel:${phone.replace(/\s/g, '')}`} className="text-2xl font-bold hover:text-red-500 transition-colors">
-                        {phone}
-                      </a>
-                    ))}
-                  </div>
-                </div>
+              <div className="absolute -bottom-4 -right-4 bg-red-600 text-white p-6 rounded-2xl shadow-xl hidden sm:block">
+                <span className="text-3xl font-bold block">+30</span>
+                <span className="text-xs uppercase tracking-widest">{t.about.badge}</span>
               </div>
-
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 border border-white/10">
-                  <Mail className="w-5 h-5 text-red-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-300 uppercase text-xs tracking-widest mb-1">Email</h4>
-                  <a href={`mailto:${CONTACT_INFO.email}`} className="text-2xl font-bold hover:text-red-500 transition-colors">
-                    {CONTACT_INFO.email}
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-6">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0 border border-white/10">
-                  <MapPin className="w-5 h-5 text-red-500" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-slate-300 uppercase text-xs tracking-widest mb-1">Dirección</h4>
-                  <p className="text-2xl font-bold">{CONTACT_INFO.address}</p>
-                  <p className="text-slate-400">{CONTACT_INFO.location}</p>
-                </div>
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.about.title}</h2>
+              <p className="text-slate-600 mb-8 leading-relaxed">{t.about.desc}</p>
+              <div className="space-y-6">
+                <div className="flex gap-4"><Award className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item1.title}</h4><p className="text-sm text-slate-600">{t.about.item1.desc}</p></div></div>
+                <div className="flex gap-4"><History className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item2.title}</h4><p className="text-sm text-slate-600">{t.about.item2.desc}</p></div></div>
               </div>
             </div>
           </div>
-          
-          <div className="bg-white/5 p-1 rounded-3xl overflow-hidden border border-white/10 h-full min-h-[400px]">
-             <div className="w-full h-full bg-slate-800 flex items-center justify-center relative group">
-                <img 
-                  src={footerBgImg} 
-                  alt="Base de operaciones"
-                  className="w-full h-full object-cover opacity-40"
-                />
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                  <MapPin className="w-12 h-12 text-red-600 mb-4 animate-pulse" />
-                  <p className="text-xl font-bold">Base de Operaciones</p>
-                  <p className="text-slate-300">Vitoria-Gasteiz y Polígonos Industriales</p>
-                </div>
-             </div>
-          </div>
-        </div>
-      </Section>
+        </Section>
 
-      {/* Footer */}
-      <footer className="bg-slate-950 text-slate-500 py-12 px-6 border-t border-white/5">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+        <Section id="contacto" className="bg-slate-900 text-white py-16 md:py-24">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-3xl font-bold mb-6">{t.contact.title}</h2>
+              <p className="text-slate-400 mb-10">{t.contact.subtitle}</p>
+              <div className="space-y-8">
+                <div className="flex items-start gap-4"><Phone className="text-red-500 mt-1" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelCall}</h4>{CONTACT_INFO.phones.map((p,i)=><a key={i} href={`tel:${p.replace(/\s/g, '')}`} className="block text-xl font-bold hover:text-red-500">{p}</a>)}</div></div>
+                <div className="flex items-start gap-4"><Mail className="text-red-500 mt-1" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelEmail}</h4><a href={`mailto:${CONTACT_INFO.email}`} className="text-xl font-bold hover:text-red-500">{CONTACT_INFO.email}</a></div></div>
+                <div className="flex items-start gap-4"><MapPin className="text-red-500 mt-1" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelAddress}</h4><p className="text-xl font-bold">{CONTACT_INFO.address}</p><p className="text-slate-400">{CONTACT_INFO.location}</p></div></div>
+              </div>
+            </div>
+            <div className="h-full min-h-[300px] relative rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
+               <img src={footerBgImg} alt="Vitoria" className="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" />
+               <div className="absolute inset-0 flex flex-col items-center justify-center"><MapPin className="w-10 h-10 text-red-600 animate-bounce" /><p className="font-bold mt-2">{t.contact.base}</p></div>
+            </div>
+          </div>
+        </Section>
+      </main>
+
+      <footer className="bg-slate-950 text-slate-500 py-10 px-4 md:px-6 border-t border-white/5">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
           <div className="flex flex-col items-center md:items-start gap-2">
-            <Logo className="grayscale brightness-200 scale-75 origin-left" />
+            <Logo lang={lang} className="grayscale brightness-200 scale-75 origin-center md:origin-left" />
             <div className="mt-4 flex flex-col items-center md:items-start gap-1">
-              <p className="text-sm text-slate-400 font-medium">
-                Copyright © {new Date().getFullYear()} USTE Mensajería.
+              <p className="text-xs text-slate-400 font-medium">
+                Copyright © {new Date().getFullYear()} USTE Mensajería. {t.footer.copy}
               </p>
-              <p className="text-xs text-slate-600">
-                Todos los derechos reservados. Vitoria-Gasteiz, Álava.
+              <p className="text-[10px] text-slate-600">
+                Vitoria-Gasteiz, Álava. {t.footer.tag}
               </p>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-600">
-             <span className="hover:text-slate-400 transition-colors">Servicio Integral</span>
-             <span className="hidden md:inline text-slate-800">•</span>
-             <span className="hover:text-slate-400 transition-colors">Mensajería Local</span>
-             <span className="hidden md:inline text-slate-800">•</span>
-             <span className="hover:text-slate-400 transition-colors">Logística Industrial</span>
+          <div className="flex flex-wrap justify-center gap-4 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-600" aria-hidden="true">
+             {t.footer.tags.map((tag, i) => (
+               <React.Fragment key={tag}>
+                 <span>{tag}</span>
+                 {i < t.footer.tags.length - 1 && <span className="text-slate-800">•</span>}
+               </React.Fragment>
+             ))}
           </div>
         </div>
       </footer>
