@@ -4,9 +4,9 @@ import { Section } from './components/Section';
 import { TRANSLATIONS, CONTACT_INFO } from './constants';
 import { Phone, Mail, MapPin, ChevronRight, History, Award, Zap} from 'lucide-react';
 
-const heroImg = "img/hero-uste.jpg"; 
-const aboutImg = "img/about-uste.jpg"; 
-const footerBgImg = "img/vitoria-wikipedia.png"; 
+const heroImg = "/uste/img/hero-uste.jpg"; 
+const aboutImg = "/uste/img/about-uste.jpg"; 
+const footerBgImg = "/uste/img/vitoria-wikipedia.png"; 
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'es' | 'eu'>('es');
