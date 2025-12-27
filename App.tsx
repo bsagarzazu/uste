@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Logo } from './components/Logo.tsx';
-import { Section } from './components/Section.tsx';
-import { TRANSLATIONS, CONTACT_INFO } from './constants.tsx';
+import { Logo } from './components/Logo';
+import { Section } from './components/Section';
+import { TRANSLATIONS, CONTACT_INFO } from './constants';
 import { Phone, Mail, MapPin, ChevronRight, History, Award } from 'lucide-react';
 
-const heroImg = "https://images.unsplash.com/photo-1519003300449-424ad040507b?auto=format&fit=crop&q=80&w=2000"; 
-const aboutImg = "https://images.unsplash.com/photo-1543833078-43843586f376?auto=format&fit=crop&q=80&w=1200"; 
-const footerBgImg = "https://images.unsplash.com/photo-1623863778523-c91834925828?auto=format&fit=crop&q=80&w=1200"; 
+const heroImg = "img/hero-uste.jpg"; 
+const aboutImg = "img/about-uste.jpg"; 
+const footerBgImg = "img/vitoria-wikipedia.png"; 
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'es' | 'eu'>('es');
