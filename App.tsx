@@ -1,8 +1,8 @@
 
 import React from 'react';
-import { Logo } from './components/Logo.tsx';
-import { Section } from './components/Section.tsx';
-import { SERVICES, CONTACT_INFO } from './constants.tsx';
+import { Logo } from './components/Logo';
+import { Section } from './components/Section';
+import { SERVICES, CONTACT_INFO } from './constants';
 import { Phone, Mail, MapPin, ChevronRight, History, Award, CheckCircle2 } from 'lucide-react';
 
 /** 
