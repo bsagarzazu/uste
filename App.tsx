@@ -44,12 +44,14 @@ const App: React.FC = () => {
               <button 
                 onClick={() => setLang('es')}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'es' ? 'bg-white shadow-sm text-red-600' : 'text-slate-400 hover:text-slate-600'}`}
+                aria-label="Cambiar a Castellano"
               >
                 ES
               </button>
               <button 
                 onClick={() => setLang('eu')}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'eu' ? 'bg-white shadow-sm text-red-600' : 'text-slate-400 hover:text-slate-600'}`}
+                aria-label="Euskarara aldatu"
               >
                 EU
               </button>
@@ -59,7 +61,7 @@ const App: React.FC = () => {
                <a 
                  href={`tel:${CONTACT_INFO.phones[0].replace(/\s/g, '')}`} 
                  className="p-2.5 bg-red-600 text-white rounded-full shadow-lg active:scale-95 transition-transform"
-                 aria-label="Deitu USTEra"
+                 aria-label="Llamar ahora"
                >
                   <Phone className="w-5 h-5" />
                </a>
@@ -72,7 +74,7 @@ const App: React.FC = () => {
         <div className="absolute inset-0 z-0">
           <img 
             src={heroImg} 
-            alt="Mensajería Vitoria"
+            alt="Furgonetas de USTE alineadas en frente de la Oficina de Correos de Vitoria-Gasteiz"
             className="w-full h-full object-cover brightness-[0.35]"
             loading="eager"
           />
@@ -117,7 +119,7 @@ const App: React.FC = () => {
             <div className="relative">
               <img 
                 src={aboutImg} 
-                alt="Logística Álava"
+                alt="Furgoneta de USTE realizando entregas en Vitoria-Gasteiz"
                 className="rounded-3xl shadow-2xl w-full h-[400px] object-cover"
                 loading="lazy"
               />
@@ -130,9 +132,9 @@ const App: React.FC = () => {
               <h2 className="text-3xl md:text-4xl font-bold mb-6">{t.about.title}</h2>
               <p className="text-slate-600 mb-8 leading-relaxed">{t.about.desc}</p>
               <div className="space-y-6">
-                <div className="flex gap-4"><Award className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item1.title}</h4><p className="text-sm text-slate-600">{t.about.item1.desc}</p></div></div>
-                <div className="flex gap-4"><History className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item2.title}</h4><p className="text-sm text-slate-600">{t.about.item2.desc}</p></div></div>
-                <div className="flex gap-4"><Zap className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item3.title}</h4><p className="text-sm text-slate-600">{t.about.item3.desc}</p></div></div>
+                <div className="flex gap-4"><Award className="text-red-600 shrink-0" aria-hidden="true" /> <div><h4 className="font-bold">{t.about.item1.title}</h4><p className="text-sm text-slate-600">{t.about.item1.desc}</p></div></div>
+                <div className="flex gap-4"><History className="text-red-600 shrink-0" aria-hidden="true" /> <div><h4 className="font-bold">{t.about.item2.title}</h4><p className="text-sm text-slate-600">{t.about.item2.desc}</p></div></div>
+                <div className="flex gap-4"><Zap className="text-red-600 shrink-0" aria-hidden="true" /> <div><h4 className="font-bold">{t.about.item3.title}</h4><p className="text-sm text-slate-600">{t.about.item3.desc}</p></div></div>
               </div>
             </div>
           </div>
@@ -144,14 +146,14 @@ const App: React.FC = () => {
               <h2 className="text-3xl font-bold mb-6">{t.contact.title}</h2>
               <p className="text-slate-400 mb-10">{t.contact.subtitle}</p>
               <div className="space-y-8">
-                <div className="flex items-start gap-4"><Phone className="text-red-500 mt-1" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelCall}</h4>{CONTACT_INFO.phones.map((p,i)=><a key={i} href={`tel:${p.replace(/\s/g, '')}`} className="block text-xl font-bold hover:text-red-500">{p}</a>)}</div></div>
-                <div className="flex items-start gap-4"><Mail className="text-red-500 mt-1" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelEmail}</h4><a href={`mailto:${CONTACT_INFO.email}`} className="text-xl font-bold hover:text-red-500">{CONTACT_INFO.email}</a></div></div>
-                <div className="flex items-start gap-4"><MapPin className="text-red-500 mt-1" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelAddress}</h4><p className="text-xl font-bold">{CONTACT_INFO.address}</p><p className="text-slate-400">{CONTACT_INFO.location}</p></div></div>
+                <div className="flex items-start gap-4"><Phone className="text-red-500 mt-1" aria-hidden="true" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelCall}</h4>{CONTACT_INFO.phones.map((p,i)=><a key={i} href={`tel:${p.replace(/\s/g, '')}`} className="block text-xl font-bold hover:text-red-500">{p}</a>)}</div></div>
+                <div className="flex items-start gap-4"><Mail className="text-red-500 mt-1" aria-hidden="true" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelEmail}</h4><a href={`mailto:${CONTACT_INFO.email}`} className="text-xl font-bold hover:text-red-500">{CONTACT_INFO.email}</a></div></div>
+                <div className="flex items-start gap-4"><MapPin className="text-red-500 mt-1" aria-hidden="true" /> <div><h4 className="text-xs uppercase text-slate-500 font-bold mb-1">{t.contact.labelAddress}</h4><p className="text-xl font-bold">{CONTACT_INFO.address}</p><p className="text-slate-400">{CONTACT_INFO.location}</p></div></div>
               </div>
             </div>
             <div className="h-full min-h-[300px] relative rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700">
-               <img src={footerBgImg} alt="Vitoria" className="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" />
-               <div className="absolute inset-0 flex flex-col items-center justify-center"><MapPin className="w-10 h-10 text-red-600 animate-bounce" /><p className="font-bold mt-2">{t.contact.base}</p></div>
+               <img src={footerBgImg} alt="Mapa de Vitoria-Gasteiz y alrededores" className="absolute inset-0 w-full h-full object-cover opacity-40" loading="lazy" />
+               <div className="absolute inset-0 flex flex-col items-center justify-center" aria-hidden="true" ><MapPin className="w-10 h-10 text-red-600 animate-bounce" /><p className="font-bold mt-2">{t.contact.base}</p></div>
             </div>
           </div>
         </Section>
