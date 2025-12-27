@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Logo } from './components/Logo';
 import { Section } from './components/Section';
 import { TRANSLATIONS, CONTACT_INFO } from './constants';
-import { Phone, Mail, MapPin, ChevronRight, History, Award } from 'lucide-react';
+import { Phone, Mail, MapPin, ChevronRight, History, Award, Zap} from 'lucide-react';
 
 const heroImg = "img/hero-uste.jpg"; 
 const aboutImg = "img/about-uste.jpg"; 
@@ -121,6 +121,7 @@ const App: React.FC = () => {
               <div className="space-y-6">
                 <div className="flex gap-4"><Award className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item1.title}</h4><p className="text-sm text-slate-600">{t.about.item1.desc}</p></div></div>
                 <div className="flex gap-4"><History className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item2.title}</h4><p className="text-sm text-slate-600">{t.about.item2.desc}</p></div></div>
+                <div className="flex gap-4"><Zap className="text-red-600 shrink-0" /> <div><h4 className="font-bold">{t.about.item3.title}</h4><p className="text-sm text-slate-600">{t.about.item3.desc}</p></div></div>
               </div>
             </div>
           </div>
