@@ -4,9 +4,20 @@ import { Section } from './components/Section';
 import { TRANSLATIONS, CONTACT_INFO } from './constants';
 import { Phone, Mail, MapPin, ChevronRight, History, Award, Zap} from 'lucide-react';
 
-const heroImg = "/uste/img/hero-uste.jpg"; 
-const aboutImg = "/uste/img/about-uste.jpg"; 
-const footerBgImg = "/uste/img/vitoria-wikipedia.png"; 
+/**
+ * Función para resolver rutas de imágenes en GitHub Pages.
+ * Si subes tu imagen a: public/img/foto.jpg
+ * Debes llamarla como: getAssetUrl("img/foto.jpg")
+ */
+const getAssetUrl = (path: string) => {
+  const base = import.meta.env.BASE_URL || '/';
+  // Asegura que no haya dobles barras y que incluya el prefijo del repo (/uste/)
+  return `${base}${path}`.replace(/\/+/g, '/');
+};
+
+const heroImg = getAssetUrl("img/hero-uste.jpg"); 
+const aboutImg = getAssetUrl("img/about-uste.jpg");
+const footerBgImg = getAssetUrl("img/vitoria-wikipedia.png"); 
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'es' | 'eu'>('es');
