@@ -13,7 +13,7 @@ export const TRANSLATIONS = {
     hero: {
       title: "Mensajería de confianza en",
       city: "Vitoria-Gasteiz",
-      subtitle: "Más de 30 años garantizando la entrega segura y puntual de su documentación, valijas y suministros industriales en Álava.",
+      subtitle: "Más de 40 años garantizando la entrega segura y puntual de su documentación, valijas y suministros industriales en Álava.",
       ctaPrimary: "Ver servicios",
       ctaSecondary: "Contacto directo"
     },
@@ -48,7 +48,7 @@ export const TRANSLATIONS = {
         },
         {
           title: "Servicios urgentes",
-          description: "Atención inmediata para envíos 'punto a punto' con máxima prioridad en toda el área metropolitana.",
+          description: "Atención inmediata para envíos \"punto a punto\" con máxima prioridad en toda el área metropolitana.",
           icon: <Clock className="w-6 h-6" />
         }
       ]
@@ -81,7 +81,7 @@ export const TRANSLATIONS = {
     hero: {
       title: "Konfiantzazko mezularitza",
       city: "Vitoria-Gasteizen",
-      subtitle: "30 urte baino gehiago Araban zure dokumentazio, barne-posta eta industria-horniduraren entrega seguru eta puntuala bermatzen.",
+      subtitle: "40 urte baino gehiago Araban zure dokumentazio, barne-posta eta industria-horniduraren entrega seguru eta puntuala bermatzen.",
       ctaPrimary: "Zerbitzuak ikusi",
       ctaSecondary: "Zuzeneko kontaktua"
     },
@@ -116,7 +116,7 @@ export const TRANSLATIONS = {
         },
         {
           title: "Premiazko zerbitzuak",
-          description: "Gune metropolitar osoan lehentasun handiena duten 'puntuz puntuko' bidalketetarako berehalako arreta.",
+          description: "Gune metropolitar osoan lehentasun handiena duten \"puntuz puntuko\" bidalketetarako berehalako arreta.",
           icon: <Clock className="w-6 h-6" />
         }
       ]

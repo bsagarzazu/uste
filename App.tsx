@@ -25,6 +25,24 @@ const App: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <style>{`
+        @keyframes usteInfiniteScroll {
+          from { transform: translateX(0); }
+          to { transform: translateX(-33.3333%); }
+        }
+        .uste-marquee-inner {
+          display: flex;
+          width: max-content;
+          /* 60s es el 'punto dulce': dinámico pero fácil de leer */
+          animation: usteInfiniteScroll 60s linear infinite;
+          will-change: transform;
+        }
+        .marquee-mask {
+          mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+          -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+        }
+      `}</style>
+
       {/* Navigation */}
       <nav className="fixed w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-100 shadow-sm" aria-label="Navegación principal">
         <div className="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
@@ -44,7 +62,7 @@ const App: React.FC = () => {
               <button 
                 onClick={() => setLang('es')}
                 className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${lang === 'es' ? 'bg-white shadow-sm text-red-600' : 'text-slate-400 hover:text-slate-600'}`}
-                aria-label="Cambiar a Castellano"
+                aria-label="Cambiar a castellano"
               >
                 ES
               </button>
@@ -82,7 +100,7 @@ const App: React.FC = () => {
         <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 w-full">
           <div className="max-w-5xl">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight">
-              {t.hero.title} <span className="text-red-500">{t.hero.city}</span>
+              {t.hero.title} <span className="text-red-500 whitespace-nowrap">{t.hero.city}</span>
             </h1>
             <p className="text-lg md:text-2xl text-slate-300 mb-8 md:mb-10 leading-relaxed max-w-2xl">
               {t.hero.subtitle}
@@ -99,18 +117,25 @@ const App: React.FC = () => {
         </div>
       </header>
       
-      <div className="bg-white border-b border-slate-100 overflow-hidden py-6 md:py-8 relative group">
-        <div className="max-w-7xl mx-auto px-6 mb-4 flex items-center gap-2">
-          <div className="h-px bg-slate-200 flex-grow"></div>
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 whitespace-nowrap px-4">{t.clients.trust}</span>
-          <div className="h-px bg-slate-200 flex-grow"></div>
+<div className="bg-white border-b border-slate-100 overflow-hidden py-10 relative">
+        <div className="max-w-7xl mx-auto px-6 mb-6 flex items-center gap-4">
+          <div className="h-px bg-slate-100 flex-grow"></div>
+          <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-slate-400 whitespace-nowrap px-4">{t.clients.trust}</span>
+          <div className="h-px bg-slate-100 flex-grow"></div>
         </div>
-        <div className="flex overflow-hidden">
-          <div className="animate-marquee flex items-center gap-12 md:gap-24">
-            {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, index) => (
-              <div key={index} className="flex items-center gap-3 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
-                <span className="text-lg md:text-xl font-black tracking-tighter text-slate-900">{client.name}</span>
-                <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+        
+        <div className="relative w-full overflow-hidden marquee-mask">
+          <div className="uste-marquee-inner">
+            {[0, 1, 2].map((i) => (
+              <div key={i} className="flex items-center gap-20 md:gap-40 px-10 md:px-20">
+                {CLIENTS.map((client, index) => (
+                  <div key={`${i}-${index}`} className="flex items-center gap-6 opacity-30 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default whitespace-nowrap group">
+                    <span className="text-2xl md:text-3xl font-black tracking-tighter text-slate-900 group-hover:text-red-600 transition-colors italic uppercase">
+                      {client.name}
+                    </span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-600 shadow-[0_0_10px_rgba(196,30,58,0.3)]"></div>
+                  </div>
+                ))}
               </div>
             ))}
           </div>
