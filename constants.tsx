@@ -9,6 +9,7 @@ export const COLORS = {
 export const TRANSLATIONS = {
   es: {
     nav: { services: "Servicios", company: "La empresa", contact: "Contacto" },
+    clients: { trust: "Confían en nosotros" },
     hero: {
       title: "Mensajería de confianza en",
       city: "Vitoria-Gasteiz",
@@ -76,6 +77,7 @@ export const TRANSLATIONS = {
   },
   eu: {
     nav: { services: "Zerbitzuak", company: "Enpresa", contact: "Kontaktua" },
+    clients: { trust: "Gugan konfiantza dute" },
     hero: {
       title: "Konfiantzazko mezularitza",
       city: "Vitoria-Gasteizen",
@@ -149,3 +151,14 @@ export const CONTACT_INFO = {
   address: "Estrasburgo Pasealekua 7, 01002",
   location: "Vitoria-Gasteiz, Araba"
 };
+
+export const CLIENTS = [
+  { name: "Mercedes-Benz" },
+  { name: "Michelin" },
+  { name: "Guardian Glass" },
+  { name: "DHL Logistics" },
+  { name: "Gestamp" },
+  { name: "Vidrala" },
+  { name: "Aernnova" },
+  { name: "Snaidero" }
+];

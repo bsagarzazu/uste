@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Logo } from './components/Logo';
 import { Section } from './components/Section';
-import { TRANSLATIONS, CONTACT_INFO } from './constants';
+import { TRANSLATIONS, CLIENTS, CONTACT_INFO } from './constants';
 import { Phone, Mail, MapPin, ChevronRight, History, Award, Zap} from 'lucide-react';
 
 /**
@@ -98,6 +98,24 @@ const App: React.FC = () => {
           </div>
         </div>
       </header>
+      
+      <div className="bg-white border-b border-slate-100 overflow-hidden py-6 md:py-8 relative group">
+        <div className="max-w-7xl mx-auto px-6 mb-4 flex items-center gap-2">
+          <div className="h-px bg-slate-200 flex-grow"></div>
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-slate-400 whitespace-nowrap px-4">{t.clients.trust}</span>
+          <div className="h-px bg-slate-200 flex-grow"></div>
+        </div>
+        <div className="flex overflow-hidden">
+          <div className="animate-marquee flex items-center gap-12 md:gap-24">
+            {[...CLIENTS, ...CLIENTS, ...CLIENTS].map((client, index) => (
+              <div key={index} className="flex items-center gap-3 opacity-40 grayscale hover:opacity-100 hover:grayscale-0 transition-all cursor-default">
+                <span className="text-lg md:text-xl font-black tracking-tighter text-slate-900">{client.name}</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-red-600"></span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
 
       <main>
         <Section id="servicios" title={t.services.sectionTitle} subtitle={t.services.sectionSubtitle}>
